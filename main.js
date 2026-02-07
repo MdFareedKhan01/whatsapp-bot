@@ -7,9 +7,6 @@ const client = new Client({
     })
 });
 
-console.log("Node : ",process.version);
-console.log("fetch : ",typeof fetch);
-
 client.once('ready',()=>{
     console.log('Client ready !');
 })
@@ -20,7 +17,9 @@ function getYTThumbnail(videoId,quality="hqdefault"){
     return `https://img.youtube.com/vi/${videoId}/${quality}.jpg`;
 }
 client.on("message_create", async (message)=>{
-    if(message.body==="!help") message.reply("!help : show the available commands \n!thumbnail <youtube_video_link> : get the thumbnail of a yt video \n!upcoming : get data for upcoming codeforces contests in a week\n!ping : get a reply - pong");
+    if(message.body==="!help") {
+        message.reply("!help : show the available commands \n!thumbnail <youtube_video_link> : get the thumbnail of a yt video \n!upcoming : get data for upcoming codeforces contests in a week\n!ping : get a reply - pong \n!loop <message(no space)> <int n> : send a repeated message for n number of times");
+    }
     else if(message.body==="!ping") message.reply("pong");
     else if(message.body.split(" ")[0]==="!thumbnail"){
             const split = message.body.split(" ");
@@ -44,6 +43,14 @@ client.on("message_create", async (message)=>{
                 message.reply("Name : "+element.name+"\nDate : "+date.toLocaleString()+"\nDuration : "+(element.durationSeconds/60)/60+" hours");
             });
         })
+    }
+    else if(message.body.split(" ")[0]==="!loop"){
+        let split = message.body.split(" ");
+        let count = parseInt(split[2]);
+        let msg = split[1];
+        for(let i=1;i<=count;i++){
+            await client.sendMessage(message.from,msg);
+        }
     }
 })
 client.initialize();
