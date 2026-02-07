@@ -1,0 +1,14 @@
+#Dependencies 
+node_modules/
+
+#Whatsapp Web.js auth & cache
+storedSessions/
+.whatsapp_auth/
+.wwebjs_cache/
+
+#Environment variables
+.Environment
+
+#OS files
+.DS_Store
+Thumbs.db
