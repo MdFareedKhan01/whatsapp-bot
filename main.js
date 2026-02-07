@@ -18,7 +18,7 @@ function getYTThumbnail(videoId,quality="hqdefault"){
 }
 client.on("message_create", async (message)=>{
     if(message.body==="!help") {
-        message.reply("!help : show the available commands \n!thumbnail <youtube_video_link> : get the thumbnail of a yt video \n!upcoming : get data for upcoming codeforces contests in a week\n!ping : get a reply - pong \n!loop <message(no space)> <int n> : send a repeated message for n number of times");
+        message.reply("*!help* : _show the available commands_ \n*!thumbnail <youtube_video_link>* : _get the thumbnail of a yt video_ \n*!upcoming* : _get data for upcoming codeforces contests in a week_\n*!ping* : _get a reply -> pong_ \n*!loop <message(no space)> <n>* : \n_send a repeated message for n number of times_");
     }
     else if(message.body==="!ping") message.reply("pong");
     else if(message.body.split(" ")[0]==="!thumbnail"){
