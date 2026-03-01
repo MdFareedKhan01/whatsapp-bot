@@ -1,7 +1,7 @@
-#Whatsapp Bot
+# Whatsapp Bot
 A whatsapp bot built using whatsapp-web.js
 
-##Features
+## Features
 - Auto reply to messages
 - Youtube thumbnail download
 - LocalAuth session handling 
